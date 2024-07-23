@@ -1,0 +1,69 @@
+---
+import type { Preload } from '@/interfaces/preload'
+
+interface Props {
+	title: string
+	description: string
+	preload?: Array<Preload>
+	canonical?: string
+	image?: string
+}
+
+const {
+	title = 'ANJOCC - Asociación Nacional de Jóvenes Candeleros de Cristo',
+	description = 'Esta es la página oficial del campamento nacional de jóvenes candeleros de Cristo, llevado a cabo en diferentes centros conferenciales y campamentos de la República Dominicana.',
+	preload,
+	canonical = 'https://anjocc.com/',
+	image = '',
+} = Astro.props as Props
+---
+
+<title>{title}</title>
+
+<meta charset='UTF-8' />
+<meta name='generator' content={Astro.generator} />
+<meta name='theme-color' content='#042f2e' />
+
+<meta name='description' content={description} />
+<meta name='viewport' content='width=device-width' />
+<meta
+	name='keywords'
+	content='anjocc, campamento, jovenes, candelero, candeleros, dios, jesus, Dios, Jesús, ANJOCC, nacional, republica dominicana, rd, dominican republic, DR, RD'
+/>
+<link rel='canonical' href={canonical} />
+<link rel='author' href='https://www.linkedin.com/in/rikirilis' />
+
+{
+	preload?.map(({ href, as, type, rel = 'preload', crossorigin }) => (
+		<link {rel} {href} {as} {type} {crossorigin} />
+	))
+}
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:site' content='@rikirilis_' />
+<meta name='twitter:creator' content='@rikirilis_' />
+<meta name='twitter:title' content={title} />
+<meta name='twitter:description' content={description} />
+<meta name='twitter:image' content={new URL(image, Astro.url)} />
+
+<meta property='og:image' content={new URL(image, Astro.url)} />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:url' content={Astro.url} />
+<meta
+	property='og:site_name'
+	content='ANJOCC - Asociación Nacional de Jóvenes Candeleros de Cristo'
+/>
+<meta property='og:type' content='website' />
+<meta name='og:locale' content='es_ES' />
+
+<meta name='robots' content='index, follow' />
+<meta name='googlebot' content='index, follow' />
+
+<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
+<link rel='apple-touch-icon' href='/img/icons/apple-touch-icon.png' />
+
+<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
+<meta name='msapplication-config' content='/browserconfig.xml' />
+
+<!-- <link rel='manifest' href='/manifest.webmanifest' /> -->

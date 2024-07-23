@@ -1,42 +1,66 @@
 ---
+import Footer from '@/components/Footer.astro'
+import GoToTop from '@/components/GoToTop.astro'
+import Header from '@/components/Header.astro'
+import SEO from '@/components/SEO.astro'
+import Toast from '@/components/ui/Toast.astro'
+import type { Preload } from '@/interfaces/preload'
+import '@fontsource-variable/onest'
+import ViewTransitions from 'astro/components/ViewTransitions.astro'
+
 interface Props {
-	title: string;
+	title: string
+	description: string
+	preload?: Array<Preload>
+	canonical?: string
+	image?: string
 }
 
-const { title } = Astro.props;
+const { title, description, preload, canonical, image } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='es'>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<SEO
+			canonical={canonical}
+			description={description}
+			image={image}
+			preload={preload}
+			title={title}
+		/>
+		<ViewTransitions />
 	</head>
-	<body>
+	<body class='relative overflow-x-hidden'>
+		<div
+			class='absolute bottom-0 top-0 z-[-2] min-h-screen w-full bg-black bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(17,94,89,0.5),rgba(4,47,46,0.2))]'
+		>
+		</div>
+
+		<GoToTop />
+		<Toast />
+
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		color-scheme: light dark;
+		--color-primary: rgb(4, 47, 46);
+		--color-secondary: rgb(148, 163, 184);
+		--color-accent: rgb(13, 148, 136);
 	}
+
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-family: 'Onest Variable', system-ui, sans-serif;
+		@apply bg-black;
+		scroll-behavior: smooth;
+		scrollbar-gutter: stable;
+		@apply text-secondary;
 	}
+
 	code {
 		font-family:
 			Menlo,
