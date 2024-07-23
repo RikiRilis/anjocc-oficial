@@ -1,0 +1,83 @@
+---
+import MainTitle from '@/components/MainTitle.astro'
+import { SendForm } from '@/components/SendForm'
+import Chat from '@/icons/Chat.astro'
+import Check from '@/icons/Check.astro'
+import Copy from '@/icons/Copy.astro'
+import { Consts } from '@/utils/const'
+
+const email: string = Consts.FORM_EMAIL
+---
+
+<MainTitle>
+	<Chat class='size-8' />
+	Contáctanos
+</MainTitle>
+
+<div class='mt-4 flex w-full flex-col gap-4 sm:flex-row sm:justify-between'>
+	<div class='flex-1'>
+		<p class='mb-6 text-pretty text-secondary'>
+			¡Gracias por visitar nuestra página! 🤗 Es un honor haberte tenido por aquí. Si tienes alguna
+			pregunta, información o sugerencia, no dudes en contactarnos al correo que aparece debajo.
+		</p>
+
+		<p class='mb-6 text-pretty text-secondary'>
+			De igual manera, puedes visitar nuestro <a
+				rel='noopener noreferrer'
+				href='https://instagram.com/anjocc_official/'
+				target='_blank'
+				class='text-accent font-bold transition-colors active:text-slate-300 active:underline sm:hover:text-slate-300 sm:hover:underline'
+				>Instagram</a
+			> y escribirnos al DM. Estaremos contestando lo antes posible.
+		</p>
+
+		<div
+			class='text-accent flex h-fit w-fit flex-row items-center justify-center gap-2 rounded-xl bg-teal-900 bg-opacity-20 px-2'
+		>
+			<h5 id='email' class='font-bold'>{email}</h5>
+
+			<Copy
+				id='copyEmailIcon'
+				class='inline-block h-5 w-5 cursor-pointer transition-transform hover:scale-105 hover:text-teal-800'
+			/>
+
+			<Check id='copiedEmailIcon' class='hidden h-5 w-5' />
+		</div>
+	</div>
+
+	<SendForm client:visible />
+</div>
+
+<script>
+	import { $ } from '@/lib/dom-selector.ts'
+	import { Consts } from '@/utils/const'
+
+	document.addEventListener('astro:page-load', () => {
+		const copyEmailIcon = $('#copyEmailIcon')
+		const copiedEmailIcon = $('#copiedEmailIcon')
+
+		copyEmailIcon?.addEventListener('click', () => {
+			copyEmailIcon?.classList.remove('inline-block')
+			copyEmailIcon?.classList.add('hidden')
+			copiedEmailIcon?.classList.add('inline-block')
+			copiedEmailIcon?.classList.remove('hidden')
+
+			navigator.clipboard.writeText(Consts.FORM_EMAIL)
+
+			window.toast({
+				dismissible: true,
+				icon: true,
+				location: 'bottom-center',
+				title: 'Email copiado',
+				type: 'success',
+			})
+
+			setTimeout(() => {
+				copyEmailIcon?.classList.add('inline-block')
+				copyEmailIcon?.classList.remove('hidden')
+				copiedEmailIcon?.classList.remove('inline-block')
+				copiedEmailIcon?.classList.add('hidden')
+			}, 3000)
+		})
+	})
+</script>
