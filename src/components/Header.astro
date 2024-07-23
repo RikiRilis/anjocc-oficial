@@ -1,0 +1,56 @@
+---
+const navItems = [
+	{
+		title: 'Inicio',
+		label: 'start',
+		url: '/',
+	},
+	{
+		title: 'Registro',
+		label: 'registry',
+		url: '/registry',
+	},
+	{
+		title: 'Contacto',
+		label: 'contact',
+		url: '/#contact',
+	},
+]
+---
+
+<div id='header' class='fixed z-50 flex w-full items-center justify-center'>
+	<header
+		class='flex h-auto w-11/12 items-center justify-between gap-x-2 overflow-hidden sm:w-3/4 lg:w-[65%]'
+	>
+		<h1>ANJOCC</h1>
+
+		<nav class='text-secondary flex items-center justify-center text-center font-semibold'>
+			{
+				navItems.map((item) => (
+					<a
+						href={item.url}
+						aria-label={item.label}
+						class='hover:text-accent inline-block h-full select-none px-2 py-4 transition hover:bg-slate-300/10'
+					>
+						{item.title}
+					</a>
+				))
+			}
+		</nav>
+	</header>
+</div>
+
+<style>
+	#header {
+		animation: bgBlur linear both;
+		animation-timeline: scroll();
+		animation-range: 0 100px;
+	}
+
+	@keyframes bgBlur {
+		to {
+			background-color: rgba(148, 183, 184, 0.1);
+			@apply shadow-md backdrop-blur-3xl;
+		}
+	}
+</style>

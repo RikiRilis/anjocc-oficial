@@ -1,0 +1,37 @@
+---
+import Instagram from '@/icons/Instagram.astro'
+---
+
+<footer class='flex w-full flex-col items-center'>
+	<div class='flex w-11/12 flex-col py-10 sm:w-3/4 lg:w-[65%]'>
+		<hr
+			class='my-6 h-0.5 w-full border-0 bg-gradient-to-r from-transparent via-teal-800 to-transparent md:inline-block'
+		/>
+
+		<div
+			class='flex w-full flex-col items-center sm:items-center sm:justify-between sm:gap-x-8 md:flex-row'
+		>
+			<p class='text-secondary text-pretty text-sm'>&#169; 2024 ANJOCC Oficial.</p>
+
+			<hr
+				class='my-6 h-0.5 w-full border-0 bg-gradient-to-r from-transparent via-teal-800 to-transparent md:hidden'
+			/>
+
+			<ul class='flex flex-row items-center gap-x-6'>
+				<li>
+					<a
+						target='_blank'
+						href='https://instagram.com/anjocc_official'
+						rel='noopener noreferrer'
+						aria-label="ANJOCC's Instagram brand logo will open in a new window"
+						class='inline-block hover:scale-125 motion-safe:transition motion-reduce:hover:scale-100'
+					>
+						<Instagram
+							class='active:text-accent sm:hover:text-accent text-secondary size-10 transition-colors motion-reduce:duration-0'
+						/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</footer>
