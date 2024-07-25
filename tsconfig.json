@@ -14,7 +14,8 @@
       "@/db": ["src/db/*"],
       "@/lib": ["src/lib/*"],
       "@/hooks": ["src/hooks/*"],
-      "@/functions": ["src/functions/*"]
+      "@/functions": ["src/functions/*"],
+      "@/utils": ["src/utils/*"]
     }
   }
 }

@@ -29,6 +29,8 @@ export default defineConfig({
 			'import.meta.env.EMAILJS_KEY': JSON.stringify(process.env.EMAILJS_KEY),
 			'import.meta.env.EMAILJS_SERVICE_ID': JSON.stringify(process.env.EMAILJS_SERVICE_ID),
 			'import.meta.env.EMAILJS_TEMPLATE_ID': JSON.stringify(process.env.EMAILJS_TEMPLATE_ID),
+			'import.meta.env.SUPABASE_URL': JSON.stringify(process.env.SUPABASE_URL),
+			'import.meta.env.SUPABASE_ANON_KEY': JSON.stringify(process.env.SUPABASE_ANON_KEY),
 		},
 	},
 })
