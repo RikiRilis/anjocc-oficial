@@ -1,0 +1,47 @@
+---
+import LinkButton from '@/components/LinkButton.astro'
+import Badge from '../Badge.astro'
+---
+
+<div class='flex w-full flex-col justify-center'>
+	<img
+		height='608'
+		width='1080'
+		id='hero-bg'
+		src='https://qhkvxejekhfmddityolg.supabase.co/storage/v1/object/sign/anjocc_files/src/hero-bg.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhbmpvY2NfZmlsZXMvc3JjL2hlcm8tYmcuanBnIiwiaWF0IjoxNzIxODMyNDkwLCJleHAiOjE3NDg5ODMyNDkwfQ.99V2_ukF6ufrlmRTAOm9bZFwHZmJnPgLL5iamhsW17s&t=2024-07-24T14%3A47%3A55.105Z'
+		class='absolute left-0 top-0 z-[-2] aspect-video min-w-full opacity-10'
+		alt=''
+	/>
+	<h1 class='text-center font-merienda text-6xl font-extrabold text-accent md:text-8xl'>ANJOCC</h1>
+	<h2 class='text-center font-comfortaa text-xl font-bold text-highlighted md:text-4xl'>
+		Asociación Nacional de Jóvenes Candeleros de Cristo
+	</h2>
+
+	<p class='mt-16 text-pretty text-sm font-light italic text-secondary opacity-70 md:px-24'>
+		"Los mucachos se fatigan y se cansan, los jóvenes flaquean y caen; pero los que esperan en
+		Jehová tendrán nuevas fuerzas; levantarán alas como las águilas; correrán, y no se cansarán;
+		caminarán y no se fatigarán."
+	</p>
+
+	<div class='mb-16 mt-4 flex w-full items-center justify-end text-sm md:px-24'>
+		<Badge> Isaías 40:30-31 </Badge>
+	</div>
+
+	<div class='flex w-full items-center justify-center gap-4'>
+		<LinkButton href='/#philosophy'> ¿Quiénes somos? </LinkButton>
+		<LinkButton href='/registry'> Regístrate </LinkButton>
+	</div>
+</div>
+
+<style>
+	h1 {
+		background: linear-gradient(to right, #e2e8f0, #0d9488, #e2e8f0, #042f2e);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	#hero-bg {
+		mask-image: linear-gradient(#000 20%, transparent 80%);
+	}
+</style>

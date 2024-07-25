@@ -1,9 +1,45 @@
 ---
+import SectionContainer from '@/components/SectionContainer.astro'
 import Layout from '@/layouts/Layout.astro'
+
+const isRegistryOpen = true
 ---
 
 <Layout
 	title='Registro - ANJOCC'
 	description='Registro para el campamento nacional de jóvenes candeleros de Cristo (ANJOCC).'
 	canonical='https://anjocc.com/registry/'
-/>
+>
+	<SectionContainer>
+		{
+			isRegistryOpen ? (
+				<h1 class='font-merienda text-4xl font-extrabold text-accent md:text-6xl'>
+					¡Registro abierto!
+				</h1>
+			) : (
+				<h1 class='text-center font-merienda text-6xl font-extrabold text-accent md:text-8xl'>
+					Registro cerrado actualmente
+				</h1>
+			)
+		}
+	</SectionContainer>
+</Layout>
+
+<style>
+	h1 {
+		background: linear-gradient(to right, #e2e8f0, #0d9488, #e2e8f0, #042f2e);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+</style>
+
+<script>
+	import { getSession, getTokens } from '@/utils/session'
+
+	document.addEventListener('astro:page-load', () => {
+		if (!getSession() || !getTokens()) {
+			window.location.href = '/signin'
+		}
+	})
+</script>

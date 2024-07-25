@@ -22,15 +22,19 @@ const navItems = [
 	<header
 		class='flex h-auto w-11/12 items-center justify-between gap-x-2 overflow-hidden sm:w-3/4 lg:w-[65%]'
 	>
-		<h1>ANJOCC</h1>
+		<a
+			href='https://anjocc.com/'
+			rel='noopener noreferrer'
+			class='font-merienda font-extrabold text-highlighted'>ANJOCC</a
+		>
 
-		<nav class='text-secondary flex items-center justify-center text-center font-semibold'>
+		<nav class='flex items-center justify-center text-center font-semibold text-secondary'>
 			{
 				navItems.map((item) => (
 					<a
 						href={item.url}
 						aria-label={item.label}
-						class='hover:text-accent inline-block h-full select-none px-2 py-4 transition hover:bg-slate-300/10'
+						class='inline-block h-full select-none px-2 py-4 transition active:bg-slate-300/10 active:text-accent md:hover:bg-slate-300/10 md:hover:text-accent'
 					>
 						{item.title}
 					</a>

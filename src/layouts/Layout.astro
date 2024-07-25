@@ -2,9 +2,13 @@
 import Footer from '@/components/Footer.astro'
 import GoToTop from '@/components/GoToTop.astro'
 import Header from '@/components/Header.astro'
+import SectionContainer from '@/components/SectionContainer.astro'
+import Contact from '@/components/sections/Contact.astro'
 import SEO from '@/components/SEO.astro'
 import Toast from '@/components/ui/Toast.astro'
 import type { Preload } from '@/interfaces/preload'
+import '@fontsource-variable/comfortaa'
+import '@fontsource-variable/merienda'
 import '@fontsource-variable/onest'
 import ViewTransitions from 'astro/components/ViewTransitions.astro'
 
@@ -33,7 +37,7 @@ const { title, description, preload, canonical, image } = Astro.props
 	</head>
 	<body class='relative overflow-x-hidden'>
 		<div
-			class='absolute bottom-0 top-0 z-[-2] min-h-screen w-full bg-black bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(17,94,89,0.5),rgba(4,47,46,0.2))]'
+			class='absolute bottom-0 top-0 z-[-2] min-h-screen w-full bg-black bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(17,94,89,0.6),rgba(4,47,46,0.2))]'
 		>
 		</div>
 
@@ -41,7 +45,12 @@ const { title, description, preload, canonical, image } = Astro.props
 		<Toast />
 
 		<Header />
+
 		<slot />
+
+		<SectionContainer id='contact'>
+			<Contact />
+		</SectionContainer>
 		<Footer />
 	</body>
 </html>
@@ -50,11 +59,12 @@ const { title, description, preload, canonical, image } = Astro.props
 		color-scheme: light dark;
 		--color-primary: rgb(4, 47, 46);
 		--color-secondary: rgb(148, 163, 184);
+		--color-highlighted: rgb(226 232 240);
 		--color-accent: rgb(13, 148, 136);
 	}
 
 	html {
-		font-family: 'Onest Variable', system-ui, sans-serif;
+		font-family: 'Onest Variable', 'Comfortaa Variable', system-ui, sans-serif;
 		@apply bg-black;
 		scroll-behavior: smooth;
 		scrollbar-gutter: stable;
@@ -71,5 +81,26 @@ const { title, description, preload, canonical, image } = Astro.props
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: rgb(13, 148, 136);
+		background-clip: content-box;
+		border: 2px solid #0000;
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #000;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 </style>

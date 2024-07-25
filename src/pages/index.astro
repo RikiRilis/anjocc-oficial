@@ -1,6 +1,7 @@
 ---
 import SectionContainer from '@/components/SectionContainer.astro'
-import Contact from '@/components/sections/Contact.astro'
+import Hero from '@/components/sections/Hero.astro'
+import Philosophy from '@/components/sections/Philosophy.astro'
 import Layout from '@/layouts/Layout.astro'
 ---
 
@@ -9,7 +10,11 @@ import Layout from '@/layouts/Layout.astro'
 	description='Esta es la página oficial del campamento nacional de jóvenes candeleros de Cristo, llevado a cabo en diferentes centros conferenciales y campamentos de la República Dominicana.'
 	canonical='https://anjocc.com/'
 >
-	<SectionContainer id='contact'>
-		<Contact />
+	<SectionContainer>
+		<Hero />
+	</SectionContainer>
+
+	<SectionContainer id='philosophy'>
+		<Philosophy />
 	</SectionContainer>
 </Layout>
