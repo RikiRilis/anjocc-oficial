@@ -1,0 +1,25 @@
+---
+import MainTitle from '@/components/MainTitle.astro'
+import { SBSignIn } from '@/components/SBSignIn'
+import Google from '@/icons/Google.astro'
+import User from '@/icons/User.astro'
+---
+
+<MainTitle>
+	<User class='size-8' />
+	Iniciar sesión
+</MainTitle>
+
+<SBSignIn client:visible>
+	<Google className='mr-2 size-5' />
+</SBSignIn>
+
+<script>
+	import { getSession, getTokens } from '@/utils/session'
+
+	document.addEventListener('astro:page-load', () => {
+		if (getSession() && getTokens()) {
+			window.location.href = '/registry'
+		}
+	})
+</script>

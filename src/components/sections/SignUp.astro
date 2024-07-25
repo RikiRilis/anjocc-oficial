@@ -1,0 +1,22 @@
+---
+import MainTitle from '@/components/MainTitle.astro'
+import { SBSignUp } from '@/components/SBSignUp'
+import User from '@/icons/User.astro'
+---
+
+<MainTitle>
+	<User class='size-8' />
+	Crear cuenta
+</MainTitle>
+
+<SBSignUp client:visible />
+
+<script>
+	import { getSession, getTokens } from '@/utils/session'
+
+	document.addEventListener('astro:page-load', () => {
+		if (getSession() && getTokens()) {
+			window.location.href = '/registry'
+		}
+	})
+</script>

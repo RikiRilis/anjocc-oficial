@@ -16,40 +16,40 @@ export const SendForm = () => {
 
 	return (
 		<form ref={form} onSubmit={handleClick} className='flex-1 pt-6 sm:w-full sm:pt-0'>
-			<span className='text-secondary text-sm italic'>
+			<span className='text-sm italic text-secondary'>
 				*Contáctanos directamente por aquí si prefieres.
 			</span>
 
 			<div className='mt-4 flex flex-col gap-2'>
-				<label className='mb-1 flex flex-col font-semibold text-slate-200'>
+				<label className='mb-1 flex flex-col font-semibold text-highlighted'>
 					Nombre
 					<input
 						required
 						autoComplete='name'
-						className='focus:border-accent text-secondary h-10 rounded-lg border border-teal-950 bg-slate-200 bg-teal-950/50 px-2 font-normal placeholder-slate-500 transition-colors ease-in-out focus:bg-transparent focus:shadow-sm focus:outline-none placeholder:focus:invisible'
+						className='h-10 rounded-lg border border-teal-950 bg-slate-200 bg-teal-950/50 px-2 font-normal text-secondary placeholder-slate-500 transition-colors ease-in-out focus:border-accent focus:bg-transparent focus:shadow-sm focus:outline-none placeholder:focus:invisible'
 						type='text'
 						name='user_name'
 						placeholder='Darlying Scoffield'
 					/>
 				</label>
 
-				<label className='mb-1 flex flex-col font-semibold text-slate-200'>
+				<label className='mb-1 flex flex-col font-semibold text-highlighted'>
 					Correo
 					<input
 						required
 						autoComplete='email'
-						className='focus:border-accent text-secondary h-10 rounded-lg border border-teal-950 bg-slate-200 bg-teal-950/50 px-2 font-normal placeholder-slate-500 transition-colors ease-in-out autofill:!bg-yellow-200 focus:bg-transparent focus:outline-none placeholder:focus:invisible'
+						className='h-10 rounded-lg border border-teal-950 bg-slate-200 bg-teal-950/50 px-2 font-normal text-secondary placeholder-slate-500 transition-colors ease-in-out autofill:!bg-yellow-200 focus:border-accent focus:bg-transparent focus:outline-none placeholder:focus:invisible'
 						type='email'
 						name='user_email'
 						placeholder='example@example.com'
 					/>
 				</label>
 
-				<label className='mb-1 flex flex-col font-semibold text-slate-200'>
+				<label className='mb-1 flex flex-col font-semibold text-highlighted'>
 					Mensaje
 					<textarea
 						required
-						className='focus:border-accent text-secondary h-28 rounded-lg border border-teal-950 bg-slate-200 bg-teal-950/50 px-2 py-1 font-normal placeholder-slate-500 transition-colors ease-in-out focus:bg-transparent focus:outline-none placeholder:focus:invisible'
+						className='h-28 rounded-lg border border-teal-950 bg-slate-200 bg-teal-950/50 px-2 py-1 font-normal text-secondary placeholder-slate-500 transition-colors ease-in-out focus:border-accent focus:bg-transparent focus:outline-none placeholder:focus:invisible'
 						name='message'
 						placeholder='Escribe tu mensaje...'
 					></textarea>
@@ -58,7 +58,7 @@ export const SendForm = () => {
 
 			<button
 				type='submit'
-				className={`mt-4 flex w-full flex-row items-center justify-center gap-2 ${!sending ? 'bg-accent cursor-pointer text-slate-200' : 'text-secondary cursor-not-allowed bg-teal-800'} ${sending ? '' : 'active:border-accent active:text-accent sm:hover:border-accent sm:hover:text-accent active:bg-transparent sm:hover:bg-transparent'} rounded-xl border border-transparent px-3 py-2 text-lg font-bold transition`}
+				className={`mt-4 flex w-full flex-row items-center justify-center gap-2 ${!sending ? 'cursor-pointer bg-accent text-highlighted' : 'cursor-not-allowed bg-teal-800 text-secondary'} ${sending ? '' : 'active:border-accent active:bg-transparent active:text-accent md:hover:border-accent md:hover:bg-transparent md:hover:text-accent'} rounded-xl border border-transparent px-3 py-2 text-lg font-bold transition`}
 			>
 				{!sending ? (
 					<svg
@@ -111,7 +111,7 @@ export const SendForm = () => {
 						</g>
 					</svg>
 				)}
-				ENVIAR
+				Enviar
 			</button>
 		</form>
 	)

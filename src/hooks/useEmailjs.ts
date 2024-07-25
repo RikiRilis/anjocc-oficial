@@ -36,9 +36,9 @@ export function useEmailjs() {
 			emailjs
 				.send(import.meta.env.EMAILJS_SERVICE_ID, import.meta.env.EMAILJS_TEMPLATE_ID, {
 					from_name: user_name,
-					to_name: 'RikiRilis',
+					to_name: 'ANJOCC',
 					from_email: user_email,
-					subject: 'Email from contact form | RikiRilis',
+					subject: 'Email del formulario | ANJOCC Website',
 					message: message,
 				})
 				.then(() => {
